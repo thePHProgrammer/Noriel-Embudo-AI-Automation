@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { SiteIcon } from "@/components/site-icon";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -25,13 +24,13 @@ export function Footer() {
             <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Navigate
             </span>
-            <Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/#services" className="text-sm text-muted-foreground hover:text-foreground">
               Services
             </Link>
-            <Link href="#work" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/#work" className="text-sm text-muted-foreground hover:text-foreground">
               Work
             </Link>
-            <Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/#contact" className="text-sm text-muted-foreground hover:text-foreground">
               Contact
             </Link>
           </div>
@@ -40,12 +39,6 @@ export function Footer() {
             <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Connect
             </span>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <Mail className="size-4" /> Email
-            </a>
             <a
               href={siteConfig.github}
               target="_blank"

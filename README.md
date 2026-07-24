@@ -27,16 +27,21 @@ cp .env.example .env.local
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `RESEND_API_KEY` | Yes, for the contact form to send email | [Resend](https://resend.com) API key |
-| `CONTACT_TO_EMAIL` | No | Where form submissions land (defaults to the email in `src/content/site.ts`) |
+| `CONTACT_TO_EMAIL` | Yes, for the contact form to send email | Your private inbox that receives submissions. Deliberately **not** hardcoded anywhere in source — set it only as an env var (locally in `.env.local`, and in Vercel's Project Settings) so it never ends up in the public repo or the deployed HTML. |
 | `RESEND_FROM_EMAIL` | No | Sender address. Defaults to `onboarding@resend.dev`, which works immediately with no domain setup. Switch to a verified-domain address once you have one, for better deliverability. |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical site URL, used in metadata/OG tags and the sitemap |
 | `NEXT_PUBLIC_CALENDLY_URL` | No | Your real Calendly (or other scheduling) link, used by the "Book a call" buttons. Falls back to a placeholder if unset. |
 
-Without `RESEND_API_KEY` set, the contact form will show a friendly error
-and fall back to a direct `mailto:` link — it won't crash the site.
+Without both `RESEND_API_KEY` and `CONTACT_TO_EMAIL` set, the contact
+form will show a friendly error pointing people to the "Book a call"
+button instead — it won't crash the site, and it won't expose any email
+address on the page.
 
 ## Before you launch
 
+- **Contact email**: set `CONTACT_TO_EMAIL` (see above) in Vercel — the
+  site has no public email address anywhere on it by design; the contact
+  form and Calendly button are the only ways visitors can reach you.
 - **Calendly link**: set `NEXT_PUBLIC_CALENDLY_URL` (see above) to your
   real scheduling link. Without it, the site falls back to a placeholder
   defined in `src/content/site.ts`.

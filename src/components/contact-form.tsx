@@ -4,7 +4,6 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { siteConfig } from "@/content/site";
 import {
   contactFormSchema,
   projectTypes,
@@ -133,11 +132,8 @@ export function ContactForm() {
 
       {submitError && (
         <p className="text-sm text-muted-foreground">
-          {submitError} You can also reach me directly at{" "}
-          <a href={`mailto:${siteConfig.email}`} className="text-accent-blue underline">
-            {siteConfig.email}
-          </a>
-          .
+          {submitError} You can also use the &quot;Book a call&quot; button above to
+          reach me directly.
         </p>
       )}
 

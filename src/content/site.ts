@@ -4,7 +4,6 @@ export const siteConfig = {
   tagline:
     "I design and build AI-powered automations that eliminate manual work — n8n, GoHighLevel, agentic AI, and the dashboards to run them.",
   location: "Quezon City, Philippines (Remote, PHT / GMT+8)",
-  email: "embudon@gmail.com",
   github: "https://github.com/thePHProgrammer",
   linkedin:
     "https://www.linkedin.com/in/noriel-joy-embudo-b468a8233",

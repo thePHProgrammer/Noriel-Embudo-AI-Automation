@@ -27,15 +27,17 @@ export async function POST(request: Request) {
   }
 
   const resend = getResendClient();
-  if (!resend) {
-    console.error("Contact form: RESEND_API_KEY is not configured.");
+  const toEmail = process.env.CONTACT_TO_EMAIL;
+  if (!resend || !toEmail) {
+    console.error(
+      "Contact form: RESEND_API_KEY and/or CONTACT_TO_EMAIL is not configured."
+    );
     return NextResponse.json(
-      { error: "Email delivery isn't configured yet. Please email directly instead." },
+      { error: "Email delivery isn't configured yet. Please try the \"Book a call\" button instead." },
       { status: 500 }
     );
   }
 
-  const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
   const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
   try {
@@ -57,7 +59,7 @@ export async function POST(request: Request) {
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json(
-        { error: "Couldn't send your message. Please try emailing directly." },
+        { error: "Couldn't send your message. Please try the \"Book a call\" button instead." },
         { status: 502 }
       );
     }
@@ -66,7 +68,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("Contact form error:", err);
     return NextResponse.json(
-      { error: "Something went wrong. Please try emailing directly." },
+      { error: "Something went wrong. Please try the \"Book a call\" button instead." },
       { status: 500 }
     );
   }

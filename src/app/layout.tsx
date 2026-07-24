@@ -69,7 +69,6 @@ const jsonLd = {
   name: siteConfig.name,
   description,
   url: siteConfig.siteUrl,
-  email: siteConfig.email,
   areaServed: "Worldwide (Remote)",
   address: {
     "@type": "PostalAddress",
@@ -81,7 +80,6 @@ const jsonLd = {
     "@type": "Person",
     name: siteConfig.name,
     jobTitle: siteConfig.role,
-    email: siteConfig.email,
     sameAs: [siteConfig.github, siteConfig.linkedin],
     knowsAbout: [
       "n8n",

@@ -1,5 +1,3 @@
-import { Mail } from "lucide-react";
-import { siteConfig } from "@/content/site";
 import { ContactForm } from "@/components/contact-form";
 import { CalendlyButton } from "@/components/calendly-button";
 import { Reveal } from "@/components/motion/reveal";
@@ -21,12 +19,6 @@ export function Contact() {
 
             <div className="mt-8 flex flex-col gap-4">
               <CalendlyButton variant="gradient" className="self-start" />
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                <Mail className="size-4" /> {siteConfig.email}
-              </a>
             </div>
           </Reveal>
 

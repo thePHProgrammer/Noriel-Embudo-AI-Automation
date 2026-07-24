@@ -10,8 +10,9 @@ export const siteConfig = {
     "https://www.linkedin.com/in/noriel-joy-embudo-b468a8233",
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://noriel-embudo.vercel.app",
-  // TODO: replace with your real Calendly (or other scheduling) link before launch.
-  calendlyUrl: "https://calendly.com/embudon/intro-call",
+  // Set NEXT_PUBLIC_CALENDLY_URL in .env.local / Vercel to override this default.
+  calendlyUrl:
+    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/embudon/intro-call",
   availability:
     "Open for part-time freelance & retainer work, 20–30 hrs/week, evenings & weekends PHT — flexible with US/UK/AU hours by appointment.",
 } as const;

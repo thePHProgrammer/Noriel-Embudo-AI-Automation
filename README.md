@@ -30,15 +30,16 @@ cp .env.example .env.local
 | `CONTACT_TO_EMAIL` | No | Where form submissions land (defaults to the email in `src/content/site.ts`) |
 | `RESEND_FROM_EMAIL` | No | Sender address. Defaults to `onboarding@resend.dev`, which works immediately with no domain setup. Switch to a verified-domain address once you have one, for better deliverability. |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical site URL, used in metadata/OG tags and the sitemap |
+| `NEXT_PUBLIC_CALENDLY_URL` | No | Your real Calendly (or other scheduling) link, used by the "Book a call" buttons. Falls back to a placeholder if unset. |
 
 Without `RESEND_API_KEY` set, the contact form will show a friendly error
 and fall back to a direct `mailto:` link — it won't crash the site.
 
 ## Before you launch
 
-- **Calendly link**: `src/content/site.ts` has a placeholder
-  `calendlyUrl` (`https://calendly.com/embudon/intro-call`) — swap it for
-  your real scheduling link.
+- **Calendly link**: set `NEXT_PUBLIC_CALENDLY_URL` (see above) to your
+  real scheduling link. Without it, the site falls back to a placeholder
+  defined in `src/content/site.ts`.
 - **Site content**: everything shown on the site (services, case studies,
   process steps, stats, tech stack, socials) lives in typed files under
   `src/content/`. Edit those, not the components, to update copy.
